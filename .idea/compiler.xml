@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="week-3-task-using_priority_queue" />
         <module name="week-3-task-NfoTECH" />
       </profile>
     </annotationProcessing>

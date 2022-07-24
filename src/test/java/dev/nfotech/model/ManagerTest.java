@@ -2,7 +2,6 @@ package dev.nfotech.model;
 
 import dev.nfotech.enums.Qualification;
 import dev.nfotech.enums.Role;
-//import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
