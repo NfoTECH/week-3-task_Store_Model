@@ -53,5 +53,7 @@ public class Main {
         cashier.makeSale(aliyah, Product.stock);
         cashier.makeSale(richard, Product.stock);
         cashier.makeSale(jackson, Product.stock);
+
+        //System.out.println("\nCarrot balance quantity after sales is " + Product.stock.get("Carrot").getQuantity());
     }
 }

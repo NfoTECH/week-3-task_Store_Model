@@ -2,8 +2,7 @@ package dev.nfotech.model;
 
 import dev.nfotech.enums.Role;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class Cashier {
 
@@ -38,6 +37,22 @@ public class Cashier {
             }
         }
         completeTransactionAndIssueReceipt(customer, stock);
+    }
+
+    public void sellByProductPriority (Product product) {
+        Queue<Customer>generalQueue = product.getGeneralQueue();
+        for (Customer customer : generalQueue) {
+            ArrayList<Product> cart = customer.getMyCart();
+            Map<String, PriorityQueue<CustomerDTO>> priorityQueueMap = Product.getProductQueue();
+            PriorityQueue<CustomerDTO> customerDTOS = priorityQueueMap.get(product.getName());
+            while (!customerDTOS.isEmpty()) {
+                HashMap<String, Product> stock = Product.getStock();
+                CustomerDTO customerDTO = customerDTOS.peek();
+                completeTransactionAndIssueReceipt(customer, stock);
+                System.out.println(customerDTO.getQuantity() + " " + customerDTO.getCustomerName() + " sold to " + customerDTO.getCustomerName());
+                customerDTOS.poll();
+            }
+        }
     }
 
 
