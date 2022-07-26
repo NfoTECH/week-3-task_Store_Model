@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Store {
+
     public static void readFile() {
         //String read = "";
         StringBuilder read = new StringBuilder();

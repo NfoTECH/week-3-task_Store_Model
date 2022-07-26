@@ -39,30 +39,12 @@ public class Cashier {
         completeTransactionAndIssueReceipt(customer, stock);
     }
 
-    public void sellByProductPriority (Product product) {
-        Queue<Customer>generalQueue = product.getGeneralQueue();
-        for (Customer customer : generalQueue) {
-            ArrayList<Product> cart = customer.getMyCart();
-            Map<String, PriorityQueue<CustomerDTO>> priorityQueueMap = Product.getProductQueue();
-            PriorityQueue<CustomerDTO> customerDTOS = priorityQueueMap.get(product.getName());
-            while (!customerDTOS.isEmpty()) {
-                HashMap<String, Product> stock = Product.getStock();
-                CustomerDTO customerDTO = customerDTOS.peek();
-                completeTransactionAndIssueReceipt(customer, stock);
-                System.out.println(customerDTO.getQuantity() + " " + customerDTO.getCustomerName() + " sold to " + customerDTO.getCustomerName());
-                customerDTOS.poll();
-            }
-        }
-    }
-
-
-
     // If customer have enough cash, Complete transaction and issue receipt
     public void completeTransactionAndIssueReceipt(Customer customer, HashMap<String, Product> stock) {
         ArrayList<Product> cart = customer.getMyCart();
-        for (int i = toRemove.size() - 1; i >= 0; i--) {  //Remove items either not available  or out of stock
-            cart.remove(cart.get(toRemove.get(i)));       //remove by index didn't work, so is employed remove by getting the object by that index
-        }
+//        for (int i = toRemove.size() - 1; i >= 0; i--) {  //Remove items either not available  or out of stock
+//            cart.remove(cart.get(toRemove.get(i)));       //remove by index didn't work, so is employed remove by getting the object by that index
+//        }
         if (customer.getWallet() >= totalPrice) {
             double totalPrice = 0;
             System.out.println("\n**********************\nCustomer name: " + customer.getName());
